@@ -12,9 +12,25 @@ import { NotFoundComponent } from './views/not-found/not-found.component';
 import { DatailsComponent } from './views/datails/datails.component';
 import { NavabarComponent } from './components/navabar/navabar.component';
 import { ProfileComponent } from './views/profile/profile.component';
+
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegisterComponent, HomeComponent, NotFoundComponent, DatailsComponent, NavabarComponent, ProfileComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    RegisterComponent,
+    HomeComponent,
+    NotFoundComponent,
+    DatailsComponent,
+    NavabarComponent,
+    ProfileComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
