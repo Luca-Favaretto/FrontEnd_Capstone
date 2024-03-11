@@ -15,6 +15,8 @@ import { ProfileComponent } from './views/profile/profile.component';
 import { TaskListComponent } from './components/task-list/task-list.component';
 import { ErrorInterceptor } from './auth/interceptor/error.interceptor';
 import { AutorizationInterceptor } from './auth/interceptor/autorization.interceptor';
+import { SliderComponent } from './components/slider/slider.component';
+import { ProgressCircleComponent } from './components/progress-circle/progress-circle.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { AutorizationInterceptor } from './auth/interceptor/autorization.interce
     NavabarComponent,
     ProfileComponent,
     TaskListComponent,
+    SliderComponent,
+    ProgressCircleComponent,
   ],
   imports: [
     BrowserModule,
