@@ -11,4 +11,11 @@ export class ErrorService {
   setError(err: string) {
     this.$error.next(err);
   }
+
+  getError() {
+    const currentError = this.$error.value;
+    if (currentError !== null) {
+      console.log(currentError);
+    }
+  }
 }

@@ -20,14 +20,15 @@ export class AutorizationInterceptor implements HttpInterceptor {
       take(1),
       switchMap(() => {
         const token: any = localStorage.getItem('userToken');
+        console.log(token);
         if (token) {
           const accessToken = JSON.parse(token);
-          console.log(accessToken);
+          console.log(accessToken.accessToken);
 
           if (accessToken) {
             this.newReq = request.clone({
               setHeaders: {
-                Authorization: `Bearer ${accessToken}`,
+                Authorization: `Bearer ${'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTAxNTg0NzAsImV4cCI6MTcxMDI0NDg3MCwic3ViIjoiOTNhNGIwOTEtMDRjMy00NTFkLTk5NDUtY2IxMThkOTg1OTI2In0.pYLHTo8820MeGa4MgEBottG2X_XlwYljjGmGQ75fOW'}`,
               },
             });
           } else {

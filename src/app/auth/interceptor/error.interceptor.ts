@@ -18,7 +18,8 @@ export class ErrorInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(
       catchError((err) => {
-        this.errorSrv.setError(err.error);
+        this.errorSrv.setError(err.error.message);
+        this.errorSrv.getError();
         return of(err.error);
       })
     );
