@@ -17,7 +17,7 @@ import { ErrorInterceptor } from './auth/interceptor/error.interceptor';
 import { AutorizationInterceptor } from './auth/interceptor/autorization.interceptor';
 import { SliderComponent } from './components/slider/slider.component';
 import { ProgressCircleComponent } from './components/progress-circle/progress-circle.component';
-
+import { NgCircleProgressModule } from 'ng-circle-progress';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +38,7 @@ import { ProgressCircleComponent } from './components/progress-circle/progress-c
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    NgCircleProgressModule.forRoot({}),
   ],
   providers: [
     {
