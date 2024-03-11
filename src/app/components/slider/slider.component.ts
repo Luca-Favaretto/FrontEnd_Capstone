@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./slider.component.scss'],
 })
 export class SliderComponent implements OnInit {
-  value = 100;
+  value = 70;
   constructor() {}
 
   ngOnInit(): void {}

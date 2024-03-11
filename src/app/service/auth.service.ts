@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { UserDTO } from '../interface/user-dto';
@@ -21,22 +21,24 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) {}
 
   signup(user: Partial<UserDTO>) {
-    return this.http.post(this.apiUrl + 'auth/register', user);
+    return this.http
+      .post(this.apiUrl + 'auth/register', user)
+      .pipe(tap(() => this.router.navigate(['/login'])));
   }
 
   login(loginData: Partial<UserDTO>) {
+    console.log('Login Data:', loginData);
     return this.http
       .post<LoginRegeisterDto>(this.apiUrl + 'auth/login', loginData)
       .pipe(
         tap((res) => {
           this.$isLoggedIn.next(true);
-          const noPassUser = res as LoginRegeisterDto;
           localStorage.setItem('userToken', JSON.stringify(res));
-          console.log('Login effettuato');
           this.router.navigate(['/home']);
         })
       );
   }
+
   logout() {
     this.$isLoggedIn.next(false);
     localStorage.removeItem('userToken');

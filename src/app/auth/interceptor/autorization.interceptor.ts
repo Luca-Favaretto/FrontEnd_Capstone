@@ -24,9 +24,10 @@ export class AutorizationInterceptor implements HttpInterceptor {
           const accessToken = JSON.parse(token);
           if (accessToken) {
             this.newReq = request.clone({
-              setHeaders: {
-                Authorization: `Bearer ${accessToken.accessToken}`,
-              },
+              headers: request.headers.set(
+                'Authorization',
+                `Bearer ${accessToken.accessToken}`
+              ),
             });
           } else {
             this.newReq = request;

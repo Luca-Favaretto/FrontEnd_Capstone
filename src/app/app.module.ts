@@ -18,6 +18,8 @@ import { AutorizationInterceptor } from './auth/interceptor/autorization.interce
 import { SliderComponent } from './components/slider/slider.component';
 import { ProgressCircleComponent } from './components/progress-circle/progress-circle.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { ResultListComponent } from './components/result-list/result-list.component';
+import { CourseListComponent } from './components/course-list/course-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +33,8 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     TaskListComponent,
     SliderComponent,
     ProgressCircleComponent,
+    ResultListComponent,
+    CourseListComponent,
   ],
   imports: [
     BrowserModule,
