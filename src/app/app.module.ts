@@ -46,13 +46,13 @@ import { CourseListComponent } from './components/course-list/course-list.compon
   ],
   providers: [
     {
-      useClass: AutorizationInterceptor,
       provide: HTTP_INTERCEPTORS,
+      useClass: AutorizationInterceptor,
       multi: true,
     },
     {
-      useClass: ErrorInterceptor,
       provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
       multi: true,
     },
   ],
