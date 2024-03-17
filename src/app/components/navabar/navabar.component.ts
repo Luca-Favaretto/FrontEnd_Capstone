@@ -8,9 +8,15 @@ import { AuthService } from 'src/app/service/auth.service';
   styleUrls: ['./navabar.component.scss'],
 })
 export class NavabarComponent implements OnInit {
+  isLoggedIn: boolean = false;
+
   constructor(private authSrv: AuthService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.authSrv.isLoggedIn.subscribe((loggedIn: boolean) => {
+      this.isLoggedIn = loggedIn;
+    });
+  }
   logout() {
     this.authSrv.logout();
     console.log('logout');

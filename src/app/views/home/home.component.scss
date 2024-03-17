@@ -1,16 +1,17 @@
 .container-home {
   height: 100%;
-  padding-block: 12px;
-  row-gap: 10px;
 
   .side {
-    row-gap: 24px;
+    row-gap: 12px;
     .home-el {
       background-color: rgba(128, 128, 128, 0.549);
       border-radius: 5px;
       padding: 10px;
       flex: 1;
       height: 100%;
+    }
+    .circle {
+      max-height: 300px;
     }
     .slider {
       display: flex;

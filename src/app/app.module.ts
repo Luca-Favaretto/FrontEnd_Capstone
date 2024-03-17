@@ -20,6 +20,8 @@ import { ProgressCircleComponent } from './components/progress-circle/progress-c
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { ResultListComponent } from './components/result-list/result-list.component';
 import { CourseListComponent } from './components/course-list/course-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +45,8 @@ import { CourseListComponent } from './components/course-list/course-list.compon
     FormsModule,
     ReactiveFormsModule,
     NgCircleProgressModule.forRoot({}),
+    BrowserAnimationsModule,
+    MatDialogModule,
   ],
   providers: [
     {
