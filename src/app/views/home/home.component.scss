@@ -1,0 +1,21 @@
+.container-home {
+  height: 100%;
+  padding-block: 12px;
+  row-gap: 10px;
+
+  .side {
+    row-gap: 24px;
+    .home-el {
+      background-color: rgba(128, 128, 128, 0.549);
+      border-radius: 5px;
+      padding: 10px;
+      flex: 1;
+      height: 100%;
+    }
+    .slider {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}

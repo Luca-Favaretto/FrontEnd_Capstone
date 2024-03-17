@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./progress-circle.component.scss'],
 })
 export class ProgressCircleComponent implements OnInit {
-  percent = 20;
+  percent = 65;
   constructor() {}
 
   ngOnInit(): void {}

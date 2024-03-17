@@ -11,12 +11,9 @@ import { PageResponse } from '../interface/page-response';
 })
 export class TaskService {
   apiUrl: string = environment.apiUrl;
-  constructor(
-    private authSrv: AuthService,
-    private http: HttpClient,
-    private router: Router
-  ) {}
-  getTask(): Observable<PageResponse> {
+  constructor(private http: HttpClient) {}
+
+  getTasks(): Observable<PageResponse> {
     return this.http.get<PageResponse>(this.apiUrl + 'tasks');
   }
 }

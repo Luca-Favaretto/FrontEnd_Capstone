@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { Result } from 'src/app/interface/result';
+import { ResultService } from 'src/app/service/result.service';
 
 @Component({
   selector: 'app-result-list',
   templateUrl: './result-list.component.html',
-  styleUrls: ['./result-list.component.scss']
+  styleUrls: ['./result-list.component.scss'],
 })
 export class ResultListComponent implements OnInit {
+  results: Result[] = [];
 
-  constructor() { }
+  constructor(private resultSrv: ResultService) {}
 
   ngOnInit(): void {
+    this.resultSrv.getResults().subscribe((res) => {
+      this.results = res.content;
+      console.log(this.results);
+    });
   }
-
 }

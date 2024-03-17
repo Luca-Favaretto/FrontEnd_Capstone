@@ -1,9 +1,17 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { PageResponse } from '../interface/page-response';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class InternalCourseService {
+  apiUrl: string = environment.apiUrl;
+  constructor(private http: HttpClient) {}
 
-  constructor() { }
+  getCourses(): Observable<PageResponse> {
+    return this.http.get<PageResponse>(this.apiUrl + 'internalCourses');
+  }
 }

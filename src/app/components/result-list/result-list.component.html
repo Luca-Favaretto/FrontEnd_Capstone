@@ -1,1 +1,9 @@
-<p>result-list works!</p>
+<h3>Result List:</h3>
+<ng-container *ngFor="let result of results">
+  <li>
+    {{ result.title }}
+  </li>
+  <li>
+    {{ result.description }}
+  </li>
+</ng-container>

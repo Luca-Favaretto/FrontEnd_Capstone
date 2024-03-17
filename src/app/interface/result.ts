@@ -1,9 +1,8 @@
 import { UserDTO } from './user-dto';
 
-export interface Task {
+export interface Result {
   id: string;
   title: string;
   description: string;
-  expirationDate: string;
   user: UserDTO;
 }
