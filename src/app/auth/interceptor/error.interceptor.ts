@@ -20,6 +20,7 @@ export class ErrorInterceptor implements HttpInterceptor {
       catchError((err) => {
         this.errorSrv.setError(err.error.message);
         this.errorSrv.getError();
+        alert('Exception: ' + err.error.message);
         return of(err.error);
       })
     );

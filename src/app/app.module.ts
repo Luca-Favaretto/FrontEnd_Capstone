@@ -22,6 +22,7 @@ import { ResultListComponent } from './components/result-list/result-list.compon
 import { CourseListComponent } from './components/course-list/course-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
+import { FormEditProfileComponent } from './components/dialog forms/form-edit-profile/form-edit-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +38,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     ProgressCircleComponent,
     ResultListComponent,
     CourseListComponent,
+    FormEditProfileComponent,
   ],
   imports: [
     BrowserModule,

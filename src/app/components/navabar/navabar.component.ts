@@ -13,7 +13,7 @@ export class NavabarComponent implements OnInit {
   constructor(private authSrv: AuthService) {}
 
   ngOnInit(): void {
-    this.authSrv.isLoggedIn.subscribe((loggedIn: boolean) => {
+    this.authSrv.isLoggedIn$.subscribe((loggedIn: boolean) => {
       this.isLoggedIn = loggedIn;
     });
   }

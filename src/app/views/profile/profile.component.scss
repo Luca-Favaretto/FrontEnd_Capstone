@@ -1,0 +1,22 @@
+main {
+  height: 100%;
+  > div {
+    background-color: rgba(0, 0, 0, 0.21);
+    padding: 1em;
+    border-radius: 10px;
+
+    img {
+      width: 100px;
+      height: 100px;
+      border-radius: 5px;
+      object-fit: cover;
+    }
+    h3 {
+      background-color: rgba(0, 255, 255, 0.387);
+      border-radius: 5px;
+      padding-inline: 5px;
+      margin-inline: 10px;
+      font-size: 2em;
+    }
+  }
+}

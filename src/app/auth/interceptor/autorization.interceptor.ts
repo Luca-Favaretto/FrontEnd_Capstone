@@ -17,7 +17,7 @@ export class AutorizationInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    return this.authSrv.user.pipe(
+    return this.authSrv.user$.pipe(
       take(1),
       switchMap(() => {
         const token: any = localStorage.getItem('userToken');
@@ -37,8 +37,6 @@ export class AutorizationInterceptor implements HttpInterceptor {
         } else {
           this.newReq = request;
         }
-        console.log(this.newReq);
-
         return next.handle(this.newReq);
       })
     );

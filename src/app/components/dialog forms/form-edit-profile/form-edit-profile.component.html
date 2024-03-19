@@ -1,0 +1,60 @@
+<div class="position-relative" *ngIf="me">
+  <button
+    class="btn position-absolute top-0 end-0 p-0"
+    [disabled]="form.invalid"
+    mat-dialog-close
+  >
+    <i class="bi bi-x"></i>
+  </button>
+  <h1 class="m-2">Update Profile</h1>
+  <form #form="ngForm" (ngSubmit)="updateMe(form)">
+    <div class="form-group">
+      <label for="name">Name </label>
+      <input
+        type="name"
+        id="name"
+        name="name"
+        class="form-control"
+        required
+        [ngModel]="me.name"
+      />
+    </div>
+    <div class="form-group">
+      <label for="surname">Surname </label>
+      <input
+        type="surname"
+        id="surname"
+        name="surname"
+        class="form-control"
+        required
+        [ngModel]="me.surname"
+      />
+    </div>
+    <div class="form-group">
+      <label for="username">Username </label>
+      <input
+        type="username"
+        id="username"
+        name="username"
+        class="form-control"
+        required
+        [ngModel]="me.username"
+      />
+    </div>
+    <div>
+      <span class="icon"><i class="bi bi-envelope-fill"></i></span
+      ><label for="email">Email </label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        class="form-control"
+        required
+        [ngModel]="me.email"
+      />
+    </div>
+    <button type="submit" class="btn mt-3" [disabled]="form.invalid">
+      Update
+    </button>
+  </form>
+</div>

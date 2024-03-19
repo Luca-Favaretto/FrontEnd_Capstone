@@ -1,1 +1,25 @@
-<p>profile works!</p>
+<main class="d-flex justify-content-center align-items-center">
+  <div class="row" *ngIf="me">
+    <div class="col-12 col-md-auto">
+      <img src="{{ me.avatar }}" alt="" />
+    </div>
+    <div
+      class="col-12 col-md-auto d-flex align-items-center justify-content-center"
+    >
+      <div>
+        <h3>{{ me.name }}</h3>
+        <h3>{{ me.surname }}</h3>
+        <h3>{{ me.username }}</h3>
+        <h3>{{ me.email }}</h3>
+
+        <h3>{{ me.rating }}</h3>
+      </div>
+    </div>
+    <div class="d-flex justify-content-around">
+      <button class="btn btn-warning" (click)="openDialog('100ms', '100ms')">
+        Edit
+      </button>
+      <button class="btn btn-danger">Delete</button>
+    </div>
+  </div>
+</main>

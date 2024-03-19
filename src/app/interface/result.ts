@@ -1,8 +1,8 @@
-import { UserDTO } from './user-dto';
+import { User } from './user';
 
 export interface Result {
   id: string;
   title: string;
   description: string;
-  user: UserDTO;
+  user: User;
 }
