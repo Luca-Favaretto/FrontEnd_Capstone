@@ -19,7 +19,11 @@ export class AuthService {
 
   apiUrl: string = environment.apiUrl;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private UserSrv: UserService
+  ) {}
 
   signup(user: Partial<User>) {
     return this.http
@@ -34,7 +38,7 @@ export class AuthService {
         tap((res) => {
           this.isLoggedIn.next(true);
           localStorage.setItem('userToken', JSON.stringify(res));
-
+          this.updateUser();
           this.router.navigate(['']);
         })
       );
@@ -51,7 +55,9 @@ export class AuthService {
       const tokenExpired = this.jwtHelper.isTokenExpired(ls);
       if (!tokenExpired) {
         this.isLoggedIn.next(true);
-
+        if (!this.user) {
+          this.updateUser();
+        }
         this.router.createUrlTree(['']);
       } else {
         this.logout();
@@ -59,5 +65,10 @@ export class AuthService {
     } else {
       this.logout();
     }
+  }
+  updateUser() {
+    this.UserSrv.getMe().subscribe((user) => {
+      this.user.next(user);
+    });
   }
 }

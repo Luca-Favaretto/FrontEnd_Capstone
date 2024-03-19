@@ -9,12 +9,12 @@
       </a>
     </li>
     <li class="nav-item active" *ngIf="isLoggedIn">
-      <a
-        class="btn btn-outline-primary"
+      <img
+        src="{{ avatar }}"
         [routerLink]="['profile']"
         routerLinkActive="active"
-        >Profile
-      </a>
+        width="40px"
+      />
     </li>
     <li class="nav-item active" *ngIf="!isLoggedIn">
       <a
@@ -39,12 +39,12 @@
   </ul>
   <ul class="navbar-nav w-100 d-flex d-md-none justify-content-around">
     <li class="nav-item active" *ngIf="isLoggedIn">
-      <a
-        class="btn btn-outline-primary"
+      <img
+        src="{{ avatar }}"
         [routerLink]="['profile']"
         routerLinkActive="active"
-        >Profile
-      </a>
+        width="40px"
+      />
     </li>
     <li class="nav-item active" *ngIf="!isLoggedIn">
       <a
