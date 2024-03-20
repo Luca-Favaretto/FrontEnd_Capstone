@@ -17,7 +17,7 @@ export class AuthService {
   private user = new BehaviorSubject<User | null>(null);
   user$ = this.user.asObservable() as Observable<User>;
 
-  apiUrl: string = environment.apiUrl;
+  apiUrl: string = environment.apiUrl + 'auth';
 
   constructor(
     private http: HttpClient,
@@ -27,13 +27,13 @@ export class AuthService {
 
   signup(user: Partial<User>) {
     return this.http
-      .post(this.apiUrl + 'auth/register', user)
+      .post(this.apiUrl + '/register', user)
       .pipe(tap(() => this.router.navigate(['/login'])));
   }
 
   login(loginData: Partial<User>) {
     return this.http
-      .post<LoginRegeister>(this.apiUrl + 'auth/login', loginData)
+      .post<LoginRegeister>(this.apiUrl + '/login', loginData)
       .pipe(
         tap((res) => {
           this.isLoggedIn.next(true);

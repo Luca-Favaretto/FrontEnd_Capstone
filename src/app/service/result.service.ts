@@ -8,10 +8,10 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class ResultService {
-  apiUrl: string = environment.apiUrl;
+  apiUrl: string = environment.apiUrl + 'results';
   constructor(private http: HttpClient) {}
 
   getResults(): Observable<PageResponse> {
-    return this.http.get<PageResponse>(this.apiUrl + 'results');
+    return this.http.get<PageResponse>(this.apiUrl);
   }
 }

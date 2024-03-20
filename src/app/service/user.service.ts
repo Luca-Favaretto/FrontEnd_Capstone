@@ -9,14 +9,14 @@ import { User } from '../interface/user';
   providedIn: 'root',
 })
 export class UserService {
-  apiUrl: string = environment.apiUrl;
+  apiUrl: string = environment.apiUrl + 'users';
   constructor(private http: HttpClient) {}
 
   getMe(): Observable<User> {
-    return this.http.get<User>(this.apiUrl + 'users/me');
+    return this.http.get<User>(this.apiUrl + '/me');
   }
 
   updateMe(user: Partial<User>): Observable<User> {
-    return this.http.put<User>(this.apiUrl + 'users/me', user);
+    return this.http.put<User>(this.apiUrl + '/me', user);
   }
 }

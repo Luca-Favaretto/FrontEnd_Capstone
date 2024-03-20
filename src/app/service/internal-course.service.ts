@@ -8,10 +8,10 @@ import { PageResponse } from '../interface/page-response';
   providedIn: 'root',
 })
 export class InternalCourseService {
-  apiUrl: string = environment.apiUrl;
+  apiUrl: string = environment.apiUrl + 'internalCourses';
   constructor(private http: HttpClient) {}
 
   getCourses(): Observable<PageResponse> {
-    return this.http.get<PageResponse>(this.apiUrl + 'internalCourses');
+    return this.http.get<PageResponse>(this.apiUrl);
   }
 }
