@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PresenceService } from 'src/app/service/presence.service';
 
 @Component({
   selector: 'app-progress-circle',
@@ -6,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./progress-circle.component.scss'],
 })
 export class ProgressCircleComponent implements OnInit {
-  percent = 65;
-  constructor() {}
+  percent!: number;
+  constructor(private presenceSrv: PresenceService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.presenceSrv.getPercent().subscribe((res) => {
+      this.percent = res;
+    });
+  }
 }
