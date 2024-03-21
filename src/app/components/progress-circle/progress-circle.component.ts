@@ -8,6 +8,7 @@ import { PresenceService } from 'src/app/service/presence.service';
 })
 export class ProgressCircleComponent implements OnInit {
   percent!: number;
+
   constructor(private presenceSrv: PresenceService) {}
 
   ngOnInit(): void {

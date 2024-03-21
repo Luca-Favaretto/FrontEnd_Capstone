@@ -1,0 +1,14 @@
+<ng-container *ngIf="todayStart"
+  ><button class="bg-danger btn h-100 w-100 fs-1" (click)="start()">
+    Start
+  </button></ng-container
+>
+<ng-container *ngIf="!todayStart"
+  ><button
+    class="bg-warning btn h-100 w-100 fs-1"
+    (click)="finish()"
+    [disabled]="disable"
+  >
+    Finish
+  </button></ng-container
+>

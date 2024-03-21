@@ -14,4 +14,7 @@ export class InternalCourseService {
   getCourses(): Observable<PageResponse> {
     return this.http.get<PageResponse>(this.apiUrl);
   }
+  getMyCourse(): Observable<PageResponse> {
+    return this.http.get<PageResponse>(this.apiUrl + '/me');
+  }
 }

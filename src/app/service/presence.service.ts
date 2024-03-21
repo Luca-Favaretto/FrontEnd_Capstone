@@ -27,6 +27,6 @@ export class PresenceService {
     return this.http.post<Presence>(this.apiUrl + '/start', null);
   }
   postFinishNow(id: string): Observable<Presence> {
-    return this.http.post<Presence>(`${this.apiUrl} + /finish/${id}`, null);
+    return this.http.post<Presence>(`${this.apiUrl}/finish/${id}`, null);
   }
 }

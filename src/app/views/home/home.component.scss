@@ -3,12 +3,16 @@
 
   .side {
     row-gap: 12px;
+    .button-badge {
+      max-height: 150px;
+    }
     .home-el {
       background-color: rgba(128, 128, 128, 0.549);
       border-radius: 5px;
       padding: 10px;
       flex: 1;
       height: 100%;
+      overflow: auto;
     }
     .circle {
       max-height: 300px;

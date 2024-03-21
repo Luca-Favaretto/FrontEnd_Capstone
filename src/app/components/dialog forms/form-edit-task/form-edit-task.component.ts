@@ -1,29 +1,28 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
-import { User } from 'src/app/interface/user';
 import { UserService } from 'src/app/service/user.service';
-
+import { Task } from 'src/app/interface/task';
 @Component({
-  selector: 'app-form-edit-profile',
-  templateUrl: './form-edit-profile.component.html',
-  styleUrls: ['./form-edit-profile.component.scss'],
+  selector: 'app-form-edit-task',
+  templateUrl: './form-edit-task.component.html',
+  styleUrls: ['./form-edit-task.component.scss'],
 })
-export class FormEditProfileComponent implements OnInit {
-  me: User;
+export class FormEditTaskComponent implements OnInit {
+  task: Task;
   dialog: MatDialog;
   constructor(
     private userSrv: UserService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    this.me = data.user;
+    this.task = data.task;
     this.dialog = data.dialog;
   }
 
   ngOnInit(): void {}
 
-  updateMe(form: NgForm) {
-    this.userSrv.updateMe(form.value).subscribe(() => {
+  complateTask(idTask: string) {
+    console.log('polpette');
+    this.userSrv.complateTask(idTask).subscribe(() => {
       this.dialog.closeAll();
     });
   }

@@ -1,9 +1,17 @@
-<h3>Task List:</h3>
+<h2 class="mb-1">Task List</h2>
 <ng-container *ngFor="let task of tasks">
-  <li>
-    {{ task.title }}
-  </li>
-  <li>
-    {{ task.expirationDate }}
-  </li>
+  <div
+    class="position-relative pointer"
+    (click)="openDialog('100ms', '100ms', task)"
+  >
+    <h3 class="mb-0 fw-bolder">
+      {{ task.title }}
+    </h3>
+    <p class="mb-0">
+      {{ task.description }}
+    </p>
+    <p class="ex-date">
+      {{ task.expirationDate }}
+    </p>
+  </div>
 </ng-container>

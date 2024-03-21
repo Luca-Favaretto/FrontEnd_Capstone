@@ -1,9 +1,11 @@
-<h3>Result List:</h3>
+<h2 class="mb-1">Result List</h2>
 <ng-container *ngFor="let result of results">
-  <li>
-    {{ result.title }}
-  </li>
-  <li>
-    {{ result.description }}
-  </li>
+  <div class="position-relative">
+    <h3 class="mb-0 fw-bolder">
+      {{ result.title }}
+    </h3>
+    <p class="mb-0">
+      {{ result.description }}
+    </p>
+  </div>
 </ng-container>

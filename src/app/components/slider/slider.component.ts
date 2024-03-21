@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-slider',
@@ -6,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./slider.component.scss'],
 })
 export class SliderComponent implements OnInit {
-  value = 70;
-  constructor() {}
+  value!: number;
+  constructor(private userSrv: UserService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.userSrv.getMe().subscribe((res) => {
+      this.value = res.rating;
+    });
+  }
 }

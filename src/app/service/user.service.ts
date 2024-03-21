@@ -19,4 +19,13 @@ export class UserService {
   updateMe(user: Partial<User>): Observable<User> {
     return this.http.put<User>(this.apiUrl + '/me', user);
   }
+  complateTask(idTask: string) {
+    return this.http.post(`${this.apiUrl}/completeTask/${idTask}`, null);
+  }
+  addCourse(idCourse: string) {
+    return this.http.patch(`${this.apiUrl}/addMeCourse/${idCourse}`, null);
+  }
+  complateCourse(idCourse: string) {
+    return this.http.post(`${this.apiUrl}/completeCourse/${idCourse}`, null);
+  }
 }

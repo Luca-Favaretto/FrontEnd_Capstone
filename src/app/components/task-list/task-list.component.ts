@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from 'src/app/service/task.service';
 import { Task } from 'src/app/interface/task';
+import { MatDialog } from '@angular/material/dialog';
+import { FormEditTaskComponent } from '../dialog forms/form-edit-task/form-edit-task.component';
 
 @Component({
   selector: 'app-task-list',
@@ -10,12 +12,28 @@ import { Task } from 'src/app/interface/task';
 export class TaskListComponent implements OnInit {
   tasks: Task[] = [];
 
-  constructor(private taskSrv: TaskService) {}
+  constructor(private taskSrv: TaskService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
+    this.getTask();
+  }
+
+  getTask() {
     this.taskSrv.getTasks().subscribe((res) => {
       this.tasks = res.content;
-      console.log(this.tasks);
+    });
+  }
+
+  openDialog(
+    enterAnimationDuration: string,
+    exitAnimationDuration: string,
+    task: Task
+  ): void {
+    const dialog = this.dialog.open(FormEditTaskComponent, {
+      data: { task, dialog: this.dialog },
+    });
+    dialog.afterClosed().subscribe(() => {
+      this.getTask();
     });
   }
 }

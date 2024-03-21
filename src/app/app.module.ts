@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AutorizationInterceptor } from './auth/interceptor/autorization.interceptor';
+import { ErrorInterceptor } from './auth/interceptor/error.interceptor';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
@@ -13,16 +15,20 @@ import { DatailsComponent } from './views/datails/datails.component';
 import { NavabarComponent } from './components/navabar/navabar.component';
 import { ProfileComponent } from './views/profile/profile.component';
 import { TaskListComponent } from './components/task-list/task-list.component';
-import { ErrorInterceptor } from './auth/interceptor/error.interceptor';
-import { AutorizationInterceptor } from './auth/interceptor/autorization.interceptor';
 import { SliderComponent } from './components/slider/slider.component';
 import { ProgressCircleComponent } from './components/progress-circle/progress-circle.component';
-import { NgCircleProgressModule } from 'ng-circle-progress';
 import { ResultListComponent } from './components/result-list/result-list.component';
 import { CourseListComponent } from './components/course-list/course-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDialogModule } from '@angular/material/dialog';
 import { FormEditProfileComponent } from './components/dialog forms/form-edit-profile/form-edit-profile.component';
+import { ButtonBadgeComponent } from './components/button-badge/button-badge.component';
+import { FormEditTaskComponent } from './components/dialog forms/form-edit-task/form-edit-task.component';
+import { MyCourseComponent } from './components/dialog forms/my-course/my-course.component';
+import { UserManagementComponent } from './views/user-management/user-management.component';
+
+import { NgCircleProgressModule } from 'ng-circle-progress';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +45,10 @@ import { FormEditProfileComponent } from './components/dialog forms/form-edit-pr
     ResultListComponent,
     CourseListComponent,
     FormEditProfileComponent,
+    ButtonBadgeComponent,
+    FormEditTaskComponent,
+    MyCourseComponent,
+    UserManagementComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +59,7 @@ import { FormEditProfileComponent } from './components/dialog forms/form-edit-pr
     NgCircleProgressModule.forRoot({}),
     BrowserAnimationsModule,
     MatDialogModule,
+    MatTableModule,
   ],
   providers: [
     {
