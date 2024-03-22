@@ -55,9 +55,9 @@ export class AuthService {
       const tokenExpired = this.jwtHelper.isTokenExpired(ls);
       if (!tokenExpired) {
         this.isLoggedIn.next(true);
-        if (!this.user) {
-          this.updateUser();
-        }
+
+        this.updateUser();
+
         this.router.createUrlTree(['']);
       } else {
         this.logout();

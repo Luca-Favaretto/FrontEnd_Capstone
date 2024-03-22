@@ -14,4 +14,7 @@ export class ResultService {
   getResults(): Observable<PageResponse> {
     return this.http.get<PageResponse>(this.apiUrl);
   }
+  getMyResults(): Observable<PageResponse> {
+    return this.http.get<PageResponse>(this.apiUrl + '/me');
+  }
 }

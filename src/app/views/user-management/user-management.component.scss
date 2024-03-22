@@ -1,6 +1,11 @@
 .list-user {
   list-style: none;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+
   .el-list-user {
+    font-size: 1.2em;
   }
 }

@@ -13,7 +13,7 @@ export class ResultListComponent implements OnInit {
   constructor(private resultSrv: ResultService) {}
 
   ngOnInit(): void {
-    this.resultSrv.getResults().subscribe((res) => {
+    this.resultSrv.getMyResults().subscribe((res) => {
       this.results = res.content;
       console.log(this.results);
     });
