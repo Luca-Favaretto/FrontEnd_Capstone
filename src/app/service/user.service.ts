@@ -28,4 +28,7 @@ export class UserService {
   complateCourse(idCourse: string) {
     return this.http.post(`${this.apiUrl}/completeCourse/${idCourse}`, null);
   }
+  getAll(): Observable<PageResponse> {
+    return this.http.get<PageResponse>(this.apiUrl);
+  }
 }

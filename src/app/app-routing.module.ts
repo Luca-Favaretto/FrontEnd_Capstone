@@ -7,6 +7,7 @@ import { NotFoundComponent } from './views/not-found/not-found.component';
 import { HomeComponent } from './views/home/home.component';
 import { AuthGuard } from './auth/guard/auth.guard';
 import { RoleGuard } from './auth/guard/role.guard';
+import { UserManagementComponent } from './views/user-management/user-management.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,12 @@ const routes: Routes = [
     component: ProfileComponent,
     canActivate: [AuthGuard, RoleGuard],
     data: { expectedRole: 'USER' },
+  },
+  {
+    path: 'managment',
+    component: UserManagementComponent,
+    canActivate: [AuthGuard, RoleGuard],
+    data: { expectedRole: 'MANAGER' },
   },
   {
     path: '**',

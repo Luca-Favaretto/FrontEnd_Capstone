@@ -8,6 +8,14 @@
         ><img src="../../../assets/logo nero.png" alt="" />
       </a>
     </li>
+    <li
+      class="nav-item active"
+      *ngIf="isLoggedIn && manager"
+      [routerLink]="['managment']"
+      routerLinkActive="active"
+    >
+      <i class="bi bi-person-lines-fill btn btn-outline-danger"></i>
+    </li>
     <li class="nav-item active" *ngIf="isLoggedIn">
       <img
         src="{{ avatar }}"
@@ -17,6 +25,7 @@
         class="pointer"
       />
     </li>
+
     <li class="nav-item active" *ngIf="!isLoggedIn">
       <a
         class="btn btn-outline-primary"

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/service/auth.service';
 import { UserService } from 'src/app/service/user.service';
 
@@ -11,6 +10,7 @@ import { UserService } from 'src/app/service/user.service';
 export class NavabarComponent implements OnInit {
   isLoggedIn: boolean = false;
   avatar!: string;
+  manager!: boolean;
 
   constructor(private authSrv: AuthService, private userSrv: UserService) {}
 
@@ -18,12 +18,16 @@ export class NavabarComponent implements OnInit {
     this.authSrv.isLoggedIn$.subscribe((loggedIn: boolean) => {
       this.isLoggedIn = loggedIn;
     });
-    this.userSrv.getMe().subscribe((resp) => {
-      this.avatar = resp.avatar;
+
+    this.authSrv.user$.subscribe((user) => {
+      if (user) {
+        this.avatar = user.avatar;
+        this.manager = user.roles.some((role) => 'MANAGER'.includes(role.role));
+      }
     });
   }
+
   logout() {
     this.authSrv.logout();
-    console.log('logout');
   }
 }

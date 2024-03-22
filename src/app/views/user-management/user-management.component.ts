@@ -1,25 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTableModule } from '@angular/material/table';
 import { User } from 'src/app/interface/user';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-user-management',
   templateUrl: './user-management.component.html',
   styleUrls: ['./user-management.component.scss'],
-  standalone: true,
-  imports: [MatTableModule],
 })
 export class UserManagementComponent implements OnInit {
   users: User[] = [];
-  displayedColumns: string[] = [
-    'Name',
-    'Surname',
-    'Rating',
-    'Role',
-    'Contract',
-    'Result',
-  ];
-  constructor() {}
+  constructor(private userSrv: UserService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.userSrv.getAll().subscribe((res) => {
+      this.users = res.content;
+      console.log(this.users);
+    });
+  }
 }

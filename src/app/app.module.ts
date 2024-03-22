@@ -28,7 +28,7 @@ import { UserManagementComponent } from './views/user-management/user-management
 
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatTableModule } from '@angular/material/table';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +59,7 @@ import { MatTableModule } from '@angular/material/table';
     NgCircleProgressModule.forRoot({}),
     BrowserAnimationsModule,
     MatDialogModule,
-    MatTableModule,
+    MatSnackBarModule,
   ],
   providers: [
     {

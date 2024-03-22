@@ -86,6 +86,13 @@ $FrontEnd_Capstone-theme: mat.define-light-theme(
 .pointer {
   cursor: pointer;
 }
+.error-snack {
+  background-color: aquamarine;
+  color: aqua;
+}
+.mat-button-wrapper {
+  color: #4b7168;
+}
 
 html,
 body {
