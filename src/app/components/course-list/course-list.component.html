@@ -5,6 +5,13 @@
   >
     MY COURSES
   </button>
+
+  <button
+    *ngIf="manager"
+    class="btn btn-danger p-0 small-button position-absolute bottom-0 end-0"
+  >
+    add new course
+  </button>
   <h2 class="mb-1">Internal Courses</h2>
   <ng-container *ngFor="let course of courses">
     <div class="position-relative">

@@ -15,11 +15,11 @@ export class TaskListComponent implements OnInit {
   constructor(private taskSrv: TaskService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
-    this.getTask();
+    this.getMyTask();
   }
 
-  getTask() {
-    this.taskSrv.getTasks().subscribe((res) => {
+  getMyTask() {
+    this.taskSrv.getMyTasks().subscribe((res) => {
       this.tasks = res.content;
     });
   }
@@ -33,7 +33,7 @@ export class TaskListComponent implements OnInit {
       data: { task, dialog: this.dialog },
     });
     dialog.afterClosed().subscribe(() => {
-      this.getTask();
+      this.getMyTask();
     });
   }
 }

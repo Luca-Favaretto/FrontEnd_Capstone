@@ -16,4 +16,7 @@ export class TaskService {
   getTasks(): Observable<PageResponse> {
     return this.http.get<PageResponse>(this.apiUrl);
   }
+  getMyTasks(): Observable<PageResponse> {
+    return this.http.get<PageResponse>(this.apiUrl + '/me');
+  }
 }

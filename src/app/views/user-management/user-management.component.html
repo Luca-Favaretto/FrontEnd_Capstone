@@ -1,37 +1,67 @@
 <div class="row">
   <ng-container *ngFor="let user of users">
-    <div class="col-6 col-md-4 col-3 p-1">
-      <div class="card">
-        <img
-          src="{{ user.avatar }}&rounded=false"
-          class="card-img-top"
-          alt="..."
-        />
-        <div class="card-body">
-          <ul class="list-user">
-            <li class="el-list-user">Name: {{ user.name }}</li>
-            <li class="el-list-user">Surname: {{ user.surname }}</li>
-            <li class="el-list-user">
-              Retribution: {{ user.contract.retribution }}$
-            </li>
-            <li class="el-list-user">Rate: {{ user.rating }}/100</li>
-
-            <div class="dropdown">
-              <button
-                class="btn btn-secondary dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Role
-              </button>
-              <ul class="dropdown-menu">
-                <li *ngFor="let role of user.roles">
-                  <a class="dropdown-item">{{ role.role }}</a>
+    <div class="col-6 col-lg-4 p-1">
+      <div class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="{{ user.avatar }}&rounded=false"
+              class="rounded h-100 w-100 object-fit-cover"
+              alt="..."
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <ul class="list-user">
+                <li class="el-list-user">Name: {{ user.name }}</li>
+                <li class="el-list-user">Surname: {{ user.surname }}</li>
+                <li class="el-list-user position-relative">
+                  Retribution: {{ user.contract.retribution }}$
+                  <button
+                    class="position-absolute end-0 btn btn-primary p-0"
+                    (click)="
+                      openDialogContract('100ms', '100ms', user.contract)
+                    "
+                  >
+                    mod
+                  </button>
                 </li>
+                <li
+                  class="el-list-user position-relative"
+                  (click)="openDialogSlider('100ms', '100ms', user)"
+                >
+                  Rate: {{ user.rating }}/100
+                  <button class="position-absolute end-0 btn btn-primary p-0">
+                    mod
+                  </button>
+                </li>
+                <li class="el-list-user">
+                  <button
+                    class="btn btn-primary"
+                    (click)="openDialogAddTask('100ms', '100ms', user)"
+                  >
+                    Active Task
+                  </button>
+                </li>
+
+                <div class="dropdown">
+                  <button
+                    class="btn dropdown-toggle"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Role
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li *ngFor="let role of user.roles">
+                      <a class="dropdown-item">{{ role.role }}</a>
+                    </li>
+                  </ul>
+                </div>
               </ul>
             </div>
-          </ul>
+          </div>
         </div>
       </div>
     </div>

@@ -25,10 +25,15 @@ import { ButtonBadgeComponent } from './components/button-badge/button-badge.com
 import { FormEditTaskComponent } from './components/dialog forms/form-edit-task/form-edit-task.component';
 import { MyCourseComponent } from './components/dialog forms/my-course/my-course.component';
 import { UserManagementComponent } from './views/user-management/user-management.component';
+import { SliderRatingComponent } from './components/dialog forms/slider-rating/slider-rating.component';
+import { ContractFormComponent } from './components/dialog forms/contract-form/contract-form.component';
+import { TaskFormComponent } from './components/dialog forms/task-add-form/task-form.component';
 
+import { MatSliderModule } from '@angular/material/slider';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +54,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     FormEditTaskComponent,
     MyCourseComponent,
     UserManagementComponent,
+    SliderRatingComponent,
+    ContractFormComponent,
+    TaskFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +68,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     BrowserAnimationsModule,
     MatDialogModule,
     MatSnackBarModule,
+    MatSliderModule,
   ],
   providers: [
     {
