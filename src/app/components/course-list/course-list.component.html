@@ -8,7 +8,8 @@
 
   <button
     *ngIf="manager"
-    class="btn btn-danger p-0 small-button position-absolute bottom-0 end-0"
+    (click)="openDialogAdd('100ms', '100ms')"
+    class="btn btn-danger p-0 small-button position-absolute top-0 start-50"
   >
     add new course
   </button>

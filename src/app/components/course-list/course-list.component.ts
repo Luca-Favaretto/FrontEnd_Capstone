@@ -5,6 +5,7 @@ import { UserService } from 'src/app/service/user.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MyCourseComponent } from '../dialog forms/my-course/my-course.component';
 import { AuthService } from 'src/app/service/auth.service';
+import { AddCourseComponent } from '../dialog forms/add-course/add-course.component';
 @Component({
   selector: 'app-course-list',
   templateUrl: './course-list.component.html',
@@ -22,14 +23,17 @@ export class CourseListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.InternalCourseSrv.getCourses().subscribe((res) => {
-      this.courses = res.content;
-      console.log(this.courses);
-    });
+    this.getAll();
     this.authSrv.user$.subscribe((user) => {
       if (user) {
         this.manager = user.roles.some((role) => 'MANAGER'.includes(role.role));
       }
+    });
+  }
+  getAll() {
+    this.InternalCourseSrv.getCourses().subscribe((res) => {
+      this.courses = res.content;
+      console.log(this.courses);
     });
   }
   addMeCourses(idCourse: string): void {
@@ -42,6 +46,18 @@ export class CourseListComponent implements OnInit {
   ): void {
     const dialog = this.dialog.open(MyCourseComponent, {
       data: { dialog: this.dialog },
+    });
+  }
+  openDialogAdd(
+    enterAnimationDuration: string,
+    exitAnimationDuration: string
+  ): void {
+    const dialog = this.dialog.open(AddCourseComponent, {
+      data: { dialog: this.dialog },
+    });
+
+    dialog.afterClosed().subscribe(() => {
+      this.getAll();
     });
   }
 }

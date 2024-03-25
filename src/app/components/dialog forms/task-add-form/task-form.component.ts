@@ -33,8 +33,8 @@ export class TaskFormComponent implements OnInit {
     });
   }
   postTask(form: NgForm) {
-    this.taskSrv.postTask(this.user.id, form.value).subscribe((resp) => {
-      this.tasks = resp.content;
+    this.taskSrv.postTask(this.user.id, form.value).subscribe(() => {
+      this.dialog.closeAll();
     });
   }
 }

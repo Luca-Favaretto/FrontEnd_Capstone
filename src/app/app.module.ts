@@ -33,7 +33,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
+import { AddCourseComponent } from './components/dialog forms/add-course/add-course.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,6 +58,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     SliderRatingComponent,
     ContractFormComponent,
     TaskFormComponent,
+    AddCourseComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +71,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatDialogModule,
     MatSnackBarModule,
     MatSliderModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
     {

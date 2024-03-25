@@ -43,57 +43,9 @@ $FrontEnd_Capstone-theme: mat.define-light-theme(
 
 /* Importing Bootstrap SCSS file. */
 @import "/node_modules/bootstrap/scss/bootstrap";
-
-:root {
-  --colore-main: #4b7168;
-  --colore-trasparent: #4b716800;
-}
-
-/* Per i browser WebKit (Chrome, Safari) */
-::-webkit-scrollbar {
-  width: 5px; /* Larghezza della scrollbar */
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(
-    --colore-main
-  ); /* Colore della parte "thumb" (il pulsante trascinabile) */
-  border-radius: 10px; /* Bordo arrotondato della parte "thumb" */
-}
-
-::-webkit-scrollbar-track {
-  background-color: var(
-    --colore-trasparent
-  ); /* Colore della parte "track" (la parte fissa) */
-}
-
-/* Per i browser Firefox */
-/* Nota: Al momento, Firefox non supporta la personalizzazione avanzata della scrollbar tramite CSS */
-/* Questo stile è un fallback generico */
-::-moz-scrollbar {
-  width: 5px;
-}
-
-::-moz-scrollbar-thumb {
-  background-color: var(--colore-main);
-  border-radius: 10px;
-}
-
-::-moz-scrollbar-track {
-  background-color: var(--colore-trasparent);
-}
-
-.pointer {
-  cursor: pointer;
-}
-.error-snack {
-  background-color: aquamarine;
-  color: aqua;
-}
-.mat-button-wrapper {
-  color: #4b7168;
-}
-
+@import "/src/style/color.scss";
+@import "/src/style/scroll.scss";
+@import "/src/style/auth.scss";
 html,
 body {
   height: 100%;
@@ -101,4 +53,9 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: var(--color-black);
+  main {
+    background-color: var(--color-white);
+    overflow-x: hidden;
+  }
 }

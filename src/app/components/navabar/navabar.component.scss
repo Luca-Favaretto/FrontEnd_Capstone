@@ -1,6 +1,6 @@
 :host {
   nav {
-    background-color: cadetblue;
+    background-color: var(--color-prymary-blu);
     height: 4em;
     ul {
       li {
@@ -8,6 +8,7 @@
         a {
           img {
             width: 40px;
+            color: var(--color-white);
           }
         }
       }

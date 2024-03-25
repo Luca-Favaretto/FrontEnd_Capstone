@@ -1,0 +1,67 @@
+.ball-1 {
+  z-index: 1;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20rem;
+  height: 20rem;
+  background-color: var(--color-prymary-blu);
+  filter: blur(4px);
+  border-radius: 9999px;
+  animation: relax 10s linear infinite reverse;
+}
+
+.ball-2 {
+  z-index: 1;
+  position: absolute;
+  top: 25%;
+  left: 30%;
+  transform: translate(-25%, -25%);
+  width: 30rem;
+  height: 30rem;
+  background-color: var(--color-secondary-blu);
+  filter: blur(4px);
+  border-radius: 9999px;
+  animation: relax 10s linear infinite;
+}
+.ball-form {
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  padding: 3rem 5rem;
+  border-radius: 20px;
+  gap: 1rem;
+  background-color: var(--color-semitasparent);
+  backdrop-filter: blur(8px);
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.25);
+  h1 {
+    color: var(--color-black);
+    font-weight: 400;
+  }
+}
+@media screen and (max-width: 800px) {
+  .ball-form {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 576px) {
+  .ball-form {
+    width: 97%;
+    padding: 3rem 2rem;
+  }
+}
+
+@keyframes relax {
+  0% {
+    transform: rotate(360deg) translate(10px) rotate(-360deg) scale(1);
+    filter: blur(4px);
+  }
+  100% {
+    transform: rotate(720deg) translate(10px) rotate(-720deg) scale(1);
+    filter: blur(2px);
+  }
+}

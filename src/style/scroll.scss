@@ -1,0 +1,45 @@
+@import "/src/style/color.scss";
+/* Per i browser WebKit (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 5px; /* Larghezza della scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(
+    --color-prymary-blu
+  ); /* Colore della parte "thumb" (il pulsante trascinabile) */
+  border-radius: 10px; /* Bordo arrotondato della parte "thumb" */
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(
+    --color-semitasparent
+  ); /* Colore della parte "track" (la parte fissa) */
+}
+
+/* Per i browser Firefox */
+/* Nota: Al momento, Firefox non supporta la personalizzazione avanzata della scrollbar tramite CSS */
+/* Questo stile è un fallback generico */
+::-moz-scrollbar {
+  width: 5px;
+}
+
+::-moz-scrollbar-thumb {
+  background-color: var(--color-prymary-blu);
+  border-radius: 10px;
+}
+
+::-moz-scrollbar-track {
+  background-color: var(--color-semitasparent);
+}
+
+.pointer {
+  cursor: pointer;
+}
+.error-snack {
+  background-color: var(--color-secondary-blu);
+  color: var(--color-black);
+}
+.mat-button-wrapper {
+  color: var(--color-accent);
+}

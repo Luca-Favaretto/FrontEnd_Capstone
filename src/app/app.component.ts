@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './service/auth.service';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +9,20 @@ import { AuthService } from './service/auth.service';
 })
 export class AppComponent implements OnInit {
   title = 'FrontEnd_Capstone';
-  constructor(private authSrv: AuthService) {}
+  isLoading: boolean = false;
+
+  constructor(private authSrv: AuthService, private router: Router) {}
+
   ngOnInit(): void {
     this.authSrv.verifyLogin();
+
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationStart) {
+        this.isLoading = true;
+      }
+      if (event instanceof NavigationEnd) {
+        this.isLoading = false;
+      }
+    });
   }
 }
