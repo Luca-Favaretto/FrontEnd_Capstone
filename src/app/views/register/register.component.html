@@ -3,7 +3,7 @@
 <div class="ball-form">
   <h1>Register</h1>
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <div class="mb-3">
+    <div class="mb-2">
       <label for="name" class="form-label">Name</label>
       <input
         type="text"
@@ -12,7 +12,7 @@
         formControlName="name"
       />
     </div>
-    <div class="mb-3">
+    <div class="mb-2">
       <label for="surname" class="form-label">Surname</label>
       <input
         type="text"
@@ -21,7 +21,7 @@
         formControlName="surname"
       />
     </div>
-    <div class="mb-3">
+    <div class="mb-2">
       <label for="username" class="form-label">Username</label>
       <input
         type="text"
@@ -31,8 +31,8 @@
       />
     </div>
 
-    <div class="mb-3">
-      <label for="email" class="form-label">Email address</label>
+    <div class="mb-2">
+      <label for="email" class="form-label">Email</label>
       <input
         type="email"
         class="form-control"
@@ -41,7 +41,7 @@
         formControlName="email"
       />
     </div>
-    <div class="mb-3 position-relative">
+    <div class="mb-2 position-relative">
       <label for="password" class="form-label">Password</label>
       <input
         type="password"
@@ -50,13 +50,13 @@
         formControlName="password"
       />
       <span
-        class="position-absolute end-0 top-50 pe-2 fs-5"
+        class="position-absolute end-0 top-50 pe-2 fs-5 mt-1"
         *ngIf="passwordVisible"
       >
         <i class="bi bi-eye" (click)="togglePasswordVisibility()"></i>
       </span>
       <span
-        class="position-absolute end-0 top-50 pe-2 fs-5"
+        class="position-absolute end-0 top-50 pe-2 fs-5 mt-1"
         *ngIf="!passwordVisible"
       >
         <i class="bi bi-eye-slash" (click)="togglePasswordVisibility()"></i>
@@ -64,7 +64,7 @@
     </div>
     <button
       type="submit"
-      class="btn btn-primary"
+      class="inverse-button"
       [disabled]="registerForm.invalid"
     >
       Submit

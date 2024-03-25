@@ -46,9 +46,10 @@ $FrontEnd_Capstone-theme: mat.define-light-theme(
 @import "/src/style/color.scss";
 @import "/src/style/scroll.scss";
 @import "/src/style/auth.scss";
+@import "/src/style/class.scss";
+@import "/src/style/mat.scss";
 html,
 body {
-  height: 100%;
 }
 body {
   margin: 0;
@@ -56,6 +57,5 @@ body {
   color: var(--color-black);
   main {
     background-color: var(--color-white);
-    overflow-x: hidden;
   }
 }

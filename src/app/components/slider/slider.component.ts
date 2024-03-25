@@ -15,4 +15,13 @@ export class SliderComponent implements OnInit {
       this.value = res.rating;
     });
   }
+  getColor() {
+    if (this.value < 25) {
+      return 'warn';
+    } else if (this.value < 50) {
+      return 'accent';
+    } else {
+      return 'primary';
+    }
+  }
 }

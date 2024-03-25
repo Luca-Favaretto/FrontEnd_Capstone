@@ -1,77 +1,80 @@
 <nav class="navbar navbar-expand navbar-light fixed-bottom sticky-md-top">
   <ul class="navbar-nav w-100 d-none d-md-flex">
-    <li class="nav-item active me-auto">
-      <a
-        class="navbar-brand me-auto"
-        [routerLink]="['']"
-        routerLinkActive="active"
+    <li
+      class="nav-item active me-auto"
+      [routerLink]="['']"
+      routerLinkActive="active"
+    >
+      <a class="navbar-brand me-auto"
         ><img src="../../../assets/logo nero.png" alt="" />
       </a>
     </li>
     <li
-      class="nav-item active"
+      class="nav-item active normal-button"
       *ngIf="isLoggedIn && manager"
       [routerLink]="['managment']"
       routerLinkActive="active"
     >
-      <i class="bi bi-person-lines-fill btn btn-outline-danger"></i>
+      <i class="bi bi-person-lines-fill"></i>
     </li>
-    <li class="nav-item active" *ngIf="isLoggedIn">
-      <img
-        src="{{ avatar }}"
-        [routerLink]="['profile']"
-        routerLinkActive="active"
-        width="40px"
-        class="pointer"
-      />
-    </li>
-
-    <li class="nav-item active" *ngIf="!isLoggedIn">
-      <a
-        class="btn btn-outline-primary"
-        [routerLink]="['login']"
-        routerLinkActive="active"
-        >Login
-      </a>
-    </li>
-    <li class="nav-item active" *ngIf="!isLoggedIn">
-      <a
-        class="btn btn-outline-success"
-        [routerLink]="['register']"
-        routerLinkActive="active"
-        >Register
-      </a>
+    <li
+      class="nav-item active pointer"
+      [routerLink]="['profile']"
+      routerLinkActive="active"
+      *ngIf="isLoggedIn"
+    >
+      <img src="{{ avatar }}" width="40px" />
     </li>
 
-    <li class="nav-item active" *ngIf="isLoggedIn" (click)="logout()">
-      <i class="bi bi-box-arrow-right btn btn-outline-danger"></i>
+    <li
+      class="nav-item active normal-button"
+      *ngIf="!isLoggedIn"
+      [routerLink]="['login']"
+      routerLinkActive="active"
+    >
+      <a class="text-white-me text-decoration-none">Login </a>
+    </li>
+    <li
+      class="nav-item active normal-button"
+      *ngIf="!isLoggedIn"
+      [routerLink]="['register']"
+      routerLinkActive="active"
+    >
+      <a class="text-white-me text-decoration-none">Register </a>
+    </li>
+
+    <li
+      class="nav-item active normal-button"
+      *ngIf="isLoggedIn"
+      (click)="logout()"
+    >
+      <i class="bi bi-box-arrow-right"></i>
     </li>
   </ul>
   <ul class="navbar-nav w-100 d-flex d-md-none justify-content-around">
-    <li class="nav-item active" *ngIf="isLoggedIn">
-      <img
-        src="{{ avatar }}"
-        [routerLink]="['profile']"
-        routerLinkActive="active"
-        width="40px"
-        class="pointer"
-      />
-    </li>
     <li
       class="nav-item active"
+      *ngIf="isLoggedIn"
+      [routerLink]="['profile']"
+      routerLinkActive="active"
+    >
+      <img src="{{ avatar }}" width="40px" class="pointer" />
+    </li>
+    <li
+      class="nav-item active normal-button"
       *ngIf="isLoggedIn && manager"
       [routerLink]="['managment']"
       routerLinkActive="active"
     >
-      <i class="bi bi-person-lines-fill btn btn-outline-danger"></i>
+      <i class="bi bi-person-lines-fill"></i>
     </li>
-    <li class="nav-item active" *ngIf="!isLoggedIn">
-      <a
-        class="btn btn-outline-primary"
-        [routerLink]="['login']"
-        routerLinkActive="active"
-        >Login
-      </a>
+    <li
+      class="nav-item active normal-button"
+      *ngIf="!isLoggedIn"
+      [routerLink]="['login']"
+      routerLinkActive="active"
+    >
+      <a class="text-white-me text-decoration-none">Login </a>
     </li>
     <li class="nav-item active">
       <a
@@ -82,17 +85,21 @@
       </a>
     </li>
 
-    <li class="nav-item active" *ngIf="!isLoggedIn">
-      <a
-        class="btn btn-outline-success"
-        [routerLink]="['register']"
-        routerLinkActive="active"
-        >Register
-      </a>
+    <li
+      class="nav-item active normal-button"
+      *ngIf="!isLoggedIn"
+      [routerLink]="['register']"
+      routerLinkActive="active"
+    >
+      <a class="text-white-me text-decoration-none">Register </a>
     </li>
 
-    <li class="nav-item active" *ngIf="isLoggedIn" (click)="logout()">
-      <i class="bi bi-box-arrow-right btn btn-outline-danger"></i>
+    <li
+      class="nav-item active normal-button"
+      *ngIf="isLoggedIn"
+      (click)="logout()"
+    >
+      <i class="bi bi-box-arrow-right"></i>
     </li>
   </ul>
 </nav>

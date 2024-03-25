@@ -29,7 +29,7 @@ export class ErrorInterceptor implements HttpInterceptor {
     );
   }
   openSnack(massage: string) {
-    this.snackBar.open(massage, 'close', {
+    this.snackBar.open(massage, 'CLOSE', {
       duration: 3000,
       horizontalPosition: 'end',
       verticalPosition: 'bottom',

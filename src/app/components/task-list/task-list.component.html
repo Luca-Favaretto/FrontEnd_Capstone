@@ -1,7 +1,7 @@
-<h2 class="mb-1">Task List</h2>
+<h2 class="mb-1">Tasks</h2>
 <ng-container *ngFor="let task of tasks">
   <div
-    class="position-relative pointer"
+    class="position-relative pointer child-home-el"
     (click)="openDialog('100ms', '100ms', task)"
   >
     <h3 class="mb-0 fw-bolder">

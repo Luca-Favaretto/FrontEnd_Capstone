@@ -1,21 +1,21 @@
 <div class="position-relative">
   <button
     (click)="openDialog('100ms', '100ms')"
-    class="btn btn-danger p-0 small-button position-absolute top-0 end-0"
+    class="small-accent-button position-absolute top-0 end-0"
   >
-    MY COURSES
+    ALL
   </button>
 
   <button
     *ngIf="manager"
     (click)="openDialogAdd('100ms', '100ms')"
-    class="btn btn-danger p-0 small-button position-absolute top-0 start-50"
+    class="small-accent-button position-absolute top-0 end-25"
   >
-    add new course
+    ADD
   </button>
-  <h2 class="mb-1">Internal Courses</h2>
+  <h2 class="mb-1">Courses</h2>
   <ng-container *ngFor="let course of courses">
-    <div class="position-relative">
+    <div class="position-relative child-home-el">
       <h3 class="mb-0 fw-bolder">
         {{ course.title }}
       </h3>
@@ -24,7 +24,7 @@
       </p>
       <p class="hours">hours {{ course.hours }}</p>
       <button
-        class="btn btn-danger position-absolute top-0 end-0 p-0"
+        class="small-accent-button position-absolute top-0 end-0"
         (click)="addMeCourses(course.id)"
       >
         <i class="bi bi-plus-lg"></i>
