@@ -33,9 +33,6 @@ export class UserService {
   }
   modRatig(idUser: string, value: number): Observable<User> {
     const body = { value: value };
-    return this.http.patch<User>(
-      `${this.apiUrl}/completeCourse/${idUser}`,
-      body
-    );
+    return this.http.patch<User>(`${this.apiUrl}/modRating/${idUser}`, body);
   }
 }

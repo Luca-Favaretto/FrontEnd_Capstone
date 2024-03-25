@@ -1,1 +1,17 @@
-<p>slider-rating works!</p>
+<div class="text-center">
+  <h3>
+    Actual Rating <span>{{ user.rating }}</span>
+  </h3>
+  <mat-slider
+    class="custom-slider d-block"
+    min="0"
+    max="100"
+    step="1"
+    [(ngModel)]="user.rating"
+  >
+    <input matSliderThumb />
+  </mat-slider>
+  <button class="btn btn-primary" (click)="updateRating()">
+    Update Rating
+  </button>
+</div>

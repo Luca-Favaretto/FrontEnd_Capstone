@@ -39,7 +39,7 @@
         formControlName="email"
       />
     </div>
-    <div class="mb-3">
+    <div class="mb-3 position-relative">
       <label for="password" class="form-label">Password</label>
       <input
         type="password"
@@ -47,6 +47,18 @@
         id="password"
         formControlName="password"
       />
+      <span
+        class="position-absolute end-0 top-50 pe-2 fs-5"
+        *ngIf="passwordVisible"
+      >
+        <i class="bi bi-eye" (click)="togglePasswordVisibility()"></i>
+      </span>
+      <span
+        class="position-absolute end-0 top-50 pe-2 fs-5"
+        *ngIf="!passwordVisible"
+      >
+        <i class="bi bi-eye-slash" (click)="togglePasswordVisibility()"></i>
+      </span>
     </div>
     <button
       type="submit"

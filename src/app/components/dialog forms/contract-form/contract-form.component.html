@@ -1,1 +1,131 @@
-<p>contract-form works!</p>
+<div class="position-relative">
+  <button class="btn position-absolute top-0 end-0 p-0" mat-dialog-close>
+    <i class="bi bi-x"></i>
+  </button>
+  <ng-container *ngIf="user.contract; else noContractTemplate">
+    <h1 class="m-2">Update Contract</h1>
+    <form #form="ngForm" (ngSubmit)="putContract(form)">
+      <div class="form-group">
+        <label for="contractTypology">Contract Typology</label>
+        <select
+          id="contractTypology"
+          name="contractTypology"
+          class="form-select"
+          required
+          [ngModel]="user.contract.contractTypology"
+        >
+          <option value="" selected disabled>Select Contract Typology</option>
+          <option value="PART_TIME">Part Time</option>
+          <option value="FULL_TIME">Full Time</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for=" weeklyHours">Weekly Hours</label>
+        <input
+          type="number"
+          id="weeklyHours"
+          name="weeklyHours"
+          class="form-control"
+          required
+          [min]="10"
+          [max]="40"
+          [ngModel]="user.contract.weeklyHours"
+        />
+      </div>
+      <div class="form-group">
+        <label for=" retribution">Retribution</label>
+        <input
+          type="number"
+          id="retribution"
+          name="retribution"
+          class="form-control"
+          required
+          [ngModel]="user.contract.retribution"
+        />
+      </div>
+      <div class="form-group">
+        <label for=" startingDate">Starting Date</label>
+        <input
+          type="date"
+          id="startingDate"
+          name="startingDate"
+          class="form-control"
+          required
+          [ngModel]="user.contract.startingDate"
+        />
+      </div>
+
+      <button type="submit" class="btn mt-3" [disabled]="form.invalid">
+        Update
+      </button>
+    </form>
+  </ng-container>
+  <ng-template #noContractTemplate>
+    <h1 class="m-2">Create Contract</h1>
+    <form #form2="ngForm" (ngSubmit)="postContract(form2)">
+      <div class="form-group">
+        <label for="contractTypology">Contract Typology</label>
+        <select
+          id="contractTypology"
+          name="contractTypology"
+          class="form-select"
+          required
+          ngModel
+        >
+          <option value="" selected disabled>Select Contract Typology</option>
+          <option value="PART_TIME">Part Time</option>
+          <option value="FULL_TIME">Full Time</option>
+        </select>
+
+        <div
+          *ngIf="
+            form2.controls['contractTypology'].invalid &&
+            form2.controls['contractTypology'].touched
+          "
+          class="text-danger"
+        >
+          Contract typology is required!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for=" weeklyHours">Weekly Hours</label>
+        <input
+          type="number"
+          id="weeklyHours"
+          name="weeklyHours"
+          class="form-control"
+          required
+          [min]="10"
+          [max]="40"
+          ngModel
+        />
+      </div>
+      <div class="form-group">
+        <label for=" retribution">Retribution</label>
+        <input
+          type="number"
+          id="retribution"
+          name="retribution"
+          class="form-control"
+          required
+          ngModel
+        />
+      </div>
+      <div class="form-group">
+        <label for=" startingDate">Starting Date</label>
+        <input
+          type="date"
+          id="startingDate"
+          name="startingDate"
+          class="form-control"
+          required
+          ngModel
+        />
+      </div>
+
+      <button type="submit" class="btn mt-3" [disabled]="form2.invalid">
+        Update
+      </button>
+    </form>
+  </ng-template>
+</div>

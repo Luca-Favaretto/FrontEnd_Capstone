@@ -20,6 +20,6 @@ export interface Contract {
   contractTypology: string;
   weeklyHours: number;
   retribution: number;
-  startingDate: string;
-  finishDate: any;
+  startingDate: Date;
+  finishDate: Date;
 }

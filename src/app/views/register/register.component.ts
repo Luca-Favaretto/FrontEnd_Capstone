@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/service/auth.service';
 })
 export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
+  passwordVisible: boolean = false;
 
   constructor(private authSrv: AuthService) {}
 
@@ -27,5 +28,15 @@ export class RegisterComponent implements OnInit {
   }
   onSubmit() {
     this.authSrv.signup(this.registerForm.value).subscribe();
+  }
+  togglePasswordVisibility(): void {
+    this.passwordVisible = !this.passwordVisible;
+    const passwordInput = document.getElementById('password');
+    if (passwordInput) {
+      passwordInput.setAttribute(
+        'type',
+        this.passwordVisible ? 'text' : 'password'
+      );
+    }
   }
 }

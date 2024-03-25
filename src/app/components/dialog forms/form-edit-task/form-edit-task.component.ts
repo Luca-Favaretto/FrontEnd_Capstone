@@ -21,7 +21,6 @@ export class FormEditTaskComponent implements OnInit {
   ngOnInit(): void {}
 
   complateTask(idTask: string) {
-    console.log('polpette');
     this.userSrv.complateTask(idTask).subscribe(() => {
       this.dialog.closeAll();
     });

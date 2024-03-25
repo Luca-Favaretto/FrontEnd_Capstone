@@ -39,10 +39,10 @@ export class UserManagementComponent implements OnInit {
   openDialogContract(
     enterAnimationDuration: string,
     exitAnimationDuration: string,
-    contract: Contract
+    user: User
   ): void {
     const dialog = this.dialog.open(ContractFormComponent, {
-      data: { contract, dialog: this.dialog },
+      data: { user, dialog: this.dialog },
     });
     dialog.afterClosed().subscribe(() => {
       this.getUsers();
