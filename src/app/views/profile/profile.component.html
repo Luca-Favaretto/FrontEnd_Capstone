@@ -1,27 +1,40 @@
-<main class="d-flex justify-content-center align-items-center">
-  <div class="row d-flex justify-content-around" *ngIf="me">
-    <div class="m-3 col-12 col-md-auto">
-      <img src="{{ me.avatar }}" alt="" />
-    </div>
-    <div class="col-md-auto d-flex align-items-center justify-content-center">
-      <div>
-        <p>Name</p>
-        <h3>{{ me.name }}</h3>
-        <p>Surname</p>
-        <h3>{{ me.surname }}</h3>
-        <p>Username</p>
-        <h3>{{ me.username }}</h3>
-        <p>Email</p>
-        <h3>{{ me.email }}</h3>
-        <p>Rate</p>
-        <h3>{{ me.rating }}</h3>
+<div
+  class="d-flex justify-content-center align-items-center first-container"
+  *ngIf="me"
+>
+  <div class="card">
+    <div class="row g-0">
+      <div class="col-sm-4">
+        <img
+          src="{{ me.avatar }}&rounded=false"
+          class="rounded h-100 w-100 object-fit-cover"
+          alt="..."
+        />
+      </div>
+      <div class="col-sm-8">
+        <div class="card-body">
+          <ul class="div-profile">
+            <span>Name</span>
+            <li class="el-profile">{{ me.name }}</li>
+            <span>Surname </span>
+            <li class="el-profile">{{ me.surname }}</li>
+            <span>Username </span>
+            <li class="el-profile">{{ me.username }}</li>
+            <span>Email </span>
+            <li class="el-profile">{{ me.email }}</li>
+
+            <li class="d-flex justify-content-around">
+              <button
+                class="btn btn-warning"
+                (click)="openDialog('100ms', '100ms')"
+              >
+                Edit
+              </button>
+              <button class="btn btn-danger">Delete</button>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-    <div class="d-flex justify-content-around">
-      <button class="btn btn-warning" (click)="openDialog('100ms', '100ms')">
-        Edit
-      </button>
-      <button class="btn btn-danger">Delete</button>
-    </div>
   </div>
-</main>
+</div>

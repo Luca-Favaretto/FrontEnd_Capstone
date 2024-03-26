@@ -28,6 +28,7 @@
         position: absolute;
         right: 3px;
       }
+
       .dropdown {
         display: flex;
         justify-content: space-between;
@@ -38,5 +39,10 @@
         }
       }
     }
+  }
+}
+@media screen and (max-width: 500px) {
+  .card .card-body .list-user .el-list-user {
+    font-size: 1em;
   }
 }
