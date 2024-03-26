@@ -1,8 +1,8 @@
 <div class="row">
   <ng-container *ngFor="let user of users">
-    <div class="col-6 col-lg-4 p-1">
-      <div class="card mb-3">
-        <div class="row g-0">
+    <div class="col-6 col-lg-4 p-3">
+      <div class="card h-100">
+        <div class="row g-0 h-100">
           <div class="col-md-4">
             <img
               src="{{ user.avatar }}&rounded=false"
@@ -13,54 +13,57 @@
           <div class="col-md-8">
             <div class="card-body">
               <ul class="list-user">
-                <li class="el-list-user">Name: {{ user.name }}</li>
-                <li class="el-list-user">Surname: {{ user.surname }}</li>
-                <li class="el-list-user position-relative">
+                <span>Name</span>
+                <li class="el-list-user">{{ user.name }}</li>
+                <span>Surname </span>
+                <li class="el-list-user">{{ user.surname }}</li>
+                <span>Retribution</span>
+                <li class="el-list-user">
                   <ng-container *ngIf="user.contract; else noContractTemplate">
-                    Retribution: {{ user.contract.retribution }}$
+                    {{ user.contract.retribution }}$
                     <button
-                      class="position-absolute end-0 btn btn-primary p-0"
+                      class="small-accent-button"
                       (click)="openDialogContract('100ms', '100ms', user)"
                     >
-                      mod
+                      <i class="bi bi-pencil-square"></i>
                     </button>
                   </ng-container>
-                </li>
-                <ng-template #noContractTemplate>
-                  <button
-                    class="btn btn-primary"
-                    (click)="openDialogContract('100ms', '100ms', user)"
-                  >
-                    Create Contract
-                  </button>
-                </ng-template>
 
+                  <ng-template #noContractTemplate>
+                    <div class="d-flex justify-content-end">
+                      <button
+                        class="inverse-button p-0 fs-7"
+                        (click)="openDialogContract('100ms', '100ms', user)"
+                      >
+                        Add Contract
+                      </button>
+                    </div>
+                  </ng-template>
+                </li>
+                <span> Rate </span>
                 <li
-                  class="el-list-user position-relative"
+                  class="el-list-user position-relative mb-2"
                   (click)="openDialogSlider('100ms', '100ms', user)"
                 >
-                  Rate: {{ user.rating }}/100
-                  <button class="position-absolute end-0 btn btn-primary p-0">
-                    mod
-                  </button>
-                </li>
-                <li class="el-list-user">
-                  <button
-                    class="btn btn-primary"
-                    (click)="openDialogAddTask('100ms', '100ms', user)"
-                  >
-                    Add Task
+                  {{ user.rating }}/100
+                  <button class="small-accent-button">
+                    <i class="bi bi-pencil-square"></i>
                   </button>
                 </li>
 
                 <div class="dropdown">
                   <button
-                    class="btn dropdown-toggle"
+                    class="dropdown-toggle el-list-user"
                     type="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    Role
+                    Role</button
+                  ><button
+                    class="el-list-user"
+                    (click)="openDialogAddTask('100ms', '100ms', user)"
+                  >
+                    Add Task
                   </button>
                   <ul class="dropdown-menu">
                     <li *ngFor="let role of user.roles">
