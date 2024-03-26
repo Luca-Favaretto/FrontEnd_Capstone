@@ -37,6 +37,10 @@ import { AddCourseComponent } from './components/dialog forms/add-course/add-cou
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { CalendarComponent } from './components/dialog forms/calendar/calendar.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatCardModule } from '@angular/material/card';
+
+import { MatNativeDateModule } from '@angular/material/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,6 +80,9 @@ import { CalendarComponent } from './components/dialog forms/calendar/calendar.c
     MatSliderModule,
     MatProgressSpinnerModule,
     MatProgressBarModule,
+    MatDatepickerModule,
+    MatCardModule,
+    MatNativeDateModule,
   ],
   providers: [
     {
