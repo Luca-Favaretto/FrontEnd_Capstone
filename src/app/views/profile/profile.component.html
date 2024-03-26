@@ -4,14 +4,14 @@
 >
   <div class="card">
     <div class="row g-0">
-      <div class="col-sm-4">
+      <div class="col-md-4">
         <img
           src="{{ me.avatar }}&rounded=false"
           class="rounded h-100 w-100 object-fit-cover"
           alt="..."
         />
       </div>
-      <div class="col-sm-8">
+      <div class="col-md-8">
         <div class="card-body">
           <ul class="div-profile">
             <span>Name</span>
@@ -25,12 +25,12 @@
 
             <li class="d-flex justify-content-around">
               <button
-                class="btn btn-warning"
+                class="inverse-button"
                 (click)="openDialog('100ms', '100ms')"
               >
                 Edit
               </button>
-              <button class="btn btn-danger">Delete</button>
+              <button class="red-button">Delete</button>
             </li>
           </ul>
         </div>

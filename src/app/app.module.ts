@@ -36,6 +36,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AddCourseComponent } from './components/dialog forms/add-course/add-course.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { CalendarComponent } from './components/dialog forms/calendar/calendar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +61,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     ContractFormComponent,
     TaskFormComponent,
     AddCourseComponent,
+    CalendarComponent,
   ],
   imports: [
     BrowserModule,
