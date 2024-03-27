@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import {
+  MatCalendarCellClassFunction,
+  MatCalendarCellCssClasses,
+} from '@angular/material/datepicker';
 import { Presence } from 'src/app/interface/presence';
 import { PresenceService } from 'src/app/service/presence.service';
 
@@ -21,7 +25,6 @@ export class CalendarComponent implements OnInit {
   getMyPresence() {
     this.presenceSrv.getMyPresence().subscribe((res) => {
       this.presences = res.content;
-      console.log(this.presences);
     });
   }
 
@@ -32,5 +35,15 @@ export class CalendarComponent implements OnInit {
       abstinenceStatus: form.value.abstinenceStatus,
     };
     this.presenceSrv.postAbstinence(data).subscribe();
+  }
+
+  dateClass(): MatCalendarCellClassFunction<any> {
+    return (date: Date): MatCalendarCellCssClasses => {
+      const formattedDate = date.toISOString().split('T')[0];
+      const isEvent = this.presences.some(
+        (presence) => presence.date === formattedDate
+      );
+      return isEvent ? { back: true } : {};
+    };
   }
 }

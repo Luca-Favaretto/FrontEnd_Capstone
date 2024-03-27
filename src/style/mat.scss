@@ -13,3 +13,11 @@
   padding: 0.8em;
   border-radius: 5px;
 }
+.mat-calendar-body-selected {
+  background-color: var(--color-accent);
+}
+.back {
+  .mat-calendar-body-cell-content {
+    background-color: var(--color-accent);
+  }
+}

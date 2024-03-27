@@ -4,7 +4,10 @@
   </div>
 
   <mat-card class="demo-inline-calendar-card">
-    <mat-calendar [(selected)]="selected"></mat-calendar>
+    <mat-calendar
+      [(selected)]="selected"
+      [dateClass]="dateClass()"
+    ></mat-calendar>
   </mat-card>
   <div class="p-4 d-flex align-items-center">
     <form #form="ngForm" (ngSubmit)="newAbstinenceStatus(form)">
