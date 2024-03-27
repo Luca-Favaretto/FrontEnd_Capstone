@@ -25,6 +25,8 @@ export class CalendarComponent implements OnInit {
   getMyPresence() {
     this.presenceSrv.getMyPresence().subscribe((res) => {
       this.presences = res.content;
+      console.log(this.presences);
+      this.dateClass();
     });
   }
 
@@ -34,7 +36,9 @@ export class CalendarComponent implements OnInit {
       date: formattedDate,
       abstinenceStatus: form.value.abstinenceStatus,
     };
-    this.presenceSrv.postAbstinence(data).subscribe();
+    this.presenceSrv.postAbstinence(data).subscribe(() => {
+      this.getMyPresence();
+    });
   }
 
   dateClass(): MatCalendarCellClassFunction<any> {

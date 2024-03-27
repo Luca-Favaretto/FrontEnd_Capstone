@@ -2,13 +2,14 @@
   <div class="p-4">
     <h3>legenda</h3>
   </div>
+  <ng-container *ngIf="presences.length > 1">
+    <mat-card class="demo-inline-calendar-card">
+      <mat-calendar
+        [(selected)]="selected"
+        [dateClass]="dateClass()"
+      ></mat-calendar> </mat-card
+  ></ng-container>
 
-  <mat-card class="demo-inline-calendar-card">
-    <mat-calendar
-      [(selected)]="selected"
-      [dateClass]="dateClass()"
-    ></mat-calendar>
-  </mat-card>
   <div class="p-4 d-flex align-items-center">
     <form #form="ngForm" (ngSubmit)="newAbstinenceStatus(form)">
       <div class="form-group">
