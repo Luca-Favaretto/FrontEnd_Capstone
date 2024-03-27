@@ -15,7 +15,6 @@ export class ResultListComponent implements OnInit {
   ngOnInit(): void {
     this.resultSrv.getMyResults().subscribe((res) => {
       this.results = res.content;
-      console.log(this.results);
     });
   }
 }

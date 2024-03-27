@@ -33,7 +33,6 @@ export class CourseListComponent implements OnInit {
   getAll() {
     this.InternalCourseSrv.getCourses().subscribe((res) => {
       this.courses = res.content;
-      console.log(this.courses);
     });
   }
   addMeCourses(idCourse: string): void {

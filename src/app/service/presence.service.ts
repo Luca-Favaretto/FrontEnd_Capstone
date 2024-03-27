@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Presence } from '../interface/presence';
+import { PageResponse } from '../interface/page-response';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +14,9 @@ export class PresenceService {
 
   getPercent(): Observable<number> {
     return this.http.get<number>(this.apiUrl + '/perCent');
+  }
+  getMyPresence(): Observable<PageResponse> {
+    return this.http.get<PageResponse>(this.apiUrl + '/me');
   }
   existNow(): Observable<boolean> {
     return this.http.get<boolean>(this.apiUrl + '/exist');
@@ -28,5 +32,11 @@ export class PresenceService {
   }
   postFinishNow(id: string): Observable<Presence> {
     return this.http.post<Presence>(`${this.apiUrl}/finish/${id}`, null);
+  }
+  postAbstinence(body: {
+    date: string;
+    abstinenceStatus: any;
+  }): Observable<Presence> {
+    return this.http.post<Presence>(`${this.apiUrl}/abstinence`, body);
   }
 }

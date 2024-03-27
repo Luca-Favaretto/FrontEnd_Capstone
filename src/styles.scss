@@ -55,7 +55,8 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   color: var(--color-black);
+  background-color: var(--color-white);
   main {
-    background-color: var(--color-white);
+    max-width: 1600px;
   }
 }
