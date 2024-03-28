@@ -1,8 +1,11 @@
-<div>
-  <p>{{ task.title }}</p>
+<div class="position-relative">
+  <button class="btn position-absolute top-0 end-0 p-0" mat-dialog-close>
+    <i class="bi bi-x"></i>
+  </button>
+  <p class="fs-3">{{ task.title }}</p>
   <p>{{ task.description }}</p>
   <p>{{ task.expirationDate }}</p>
-  <button class="btn btn-success" (click)="complateTask(task.id)">
+  <button class="inverse-button" (click)="complateTask(task.id)">
     Complate
   </button>
 </div>

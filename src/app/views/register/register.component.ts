@@ -1,7 +1,10 @@
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
+import { SnackService } from 'src/app/service/snack.service';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +15,7 @@ export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
   passwordVisible: boolean = false;
 
-  constructor(private authSrv: AuthService) {}
+  constructor(private snackSrv: SnackService, private authSrv: AuthService) {}
 
   ngOnInit(): void {
     this.registerForm = new FormGroup({
@@ -27,7 +30,9 @@ export class RegisterComponent implements OnInit {
     });
   }
   onSubmit() {
-    this.authSrv.signup(this.registerForm.value).subscribe();
+    this.authSrv.signup(this.registerForm.value).subscribe((res) => {
+      this.snackSrv.openSnack(`Welcome ${res.name}`);
+    });
   }
   togglePasswordVisibility(): void {
     this.passwordVisible = !this.passwordVisible;

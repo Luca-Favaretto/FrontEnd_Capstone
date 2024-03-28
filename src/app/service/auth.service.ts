@@ -25,9 +25,9 @@ export class AuthService {
     private UserSrv: UserService
   ) {}
 
-  signup(user: Partial<User>) {
+  signup(user: Partial<User>): Observable<User> {
     return this.http
-      .post(this.apiUrl + '/register', user)
+      .post<User>(this.apiUrl + '/register', user)
       .pipe(tap(() => this.router.navigate(['/login'])));
   }
 

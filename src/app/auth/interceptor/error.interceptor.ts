@@ -9,10 +9,12 @@ import { Observable, catchError, of, tap } from 'rxjs';
 import { ErrorService } from 'src/app/service/error.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { bottom, end } from '@popperjs/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { SnackService } from 'src/app/service/snack.service';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-  constructor(private errorSrv: ErrorService, private snackBar: MatSnackBar) {}
+  constructor(private errorSrv: ErrorService, private snackSrv: SnackService) {}
 
   intercept(
     request: HttpRequest<unknown>,
@@ -22,18 +24,10 @@ export class ErrorInterceptor implements HttpInterceptor {
       catchError((err) => {
         this.errorSrv.setError(err.error.message);
         this.errorSrv.getError();
-        this.openSnack(err.error.message);
+        this.snackSrv.openSnack(err.error.message, true);
 
         return of(err.error);
       })
     );
-  }
-  openSnack(massage: string) {
-    this.snackBar.open(massage, 'CLOSE', {
-      duration: 3000,
-      horizontalPosition: 'end',
-      verticalPosition: 'bottom',
-      panelClass: ['error-snack'],
-    });
   }
 }

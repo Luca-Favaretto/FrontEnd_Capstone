@@ -1,9 +1,14 @@
 .mat-progress-bar-fill::after {
   background-color: var(--color-accent);
 }
-.error-snack {
+.normal-snack {
   background-color: var(--color-secondary-blu);
   color: var(--color-black);
+  font-weight: 600;
+}
+.error-snack {
+  background-color: var(--color-accent);
+  color: var(--color-white);
   font-weight: 600;
 }
 .mat-button-wrapper {
@@ -14,10 +19,20 @@
   border-radius: 5px;
 }
 .mat-calendar-body-selected {
-  background-color: var(--color-accent);
+  background-color: var(--color-secondary-blu);
 }
-.back {
+.backHoliday {
+  .mat-calendar-body-cell-content {
+    background-color: var(--color-prymary-blu);
+  }
+}
+.backPermit {
   .mat-calendar-body-cell-content {
     background-color: var(--color-accent);
+  }
+}
+.backPresent {
+  .mat-calendar-body-cell-content {
+    background-color: var(--color-green);
   }
 }

@@ -6,6 +6,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { MyCourseComponent } from '../dialog forms/my-course/my-course.component';
 import { AuthService } from 'src/app/service/auth.service';
 import { AddCourseComponent } from '../dialog forms/add-course/add-course.component';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackService } from 'src/app/service/snack.service';
 @Component({
   selector: 'app-course-list',
   templateUrl: './course-list.component.html',
@@ -16,6 +19,7 @@ export class CourseListComponent implements OnInit {
   manager: boolean = false;
 
   constructor(
+    private snackSrv: SnackService,
     private InternalCourseSrv: InternalCourseService,
     private userSrv: UserService,
     public dialog: MatDialog,
@@ -36,7 +40,9 @@ export class CourseListComponent implements OnInit {
     });
   }
   addMeCourses(idCourse: string): void {
-    this.userSrv.addCourse(idCourse).subscribe();
+    this.userSrv.addCourse(idCourse).subscribe(() => {
+      this.snackSrv.openSnack('Course add');
+    });
   }
 
   openDialog(

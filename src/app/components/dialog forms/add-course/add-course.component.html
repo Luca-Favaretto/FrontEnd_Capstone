@@ -1,39 +1,44 @@
-<h1 class="m-2">Add Task</h1>
-<form #form="ngForm" (ngSubmit)="postCourse(form)">
-  <div class="form-group">
-    <label for=" title">Title</label>
-    <input
-      type="text"
-      id="title"
-      name="title"
-      class="form-control"
-      required
-      ngModel
-    />
-  </div>
-  <div class="form-group">
-    <label for="description">Description</label>
-    <textarea
-      type="textarea"
-      id="description"
-      name="description"
-      class="form-control"
-      ngModel
-    ></textarea>
-  </div>
-  <div class="form-group">
-    <label for="hours">Hours</label>
-    <input
-      type="number"
-      id="hours"
-      name="hours"
-      class="form-control"
-      [min]="10"
-      max="200"
-      ngModel
-    />
-  </div>
-  <button type="submit" class="btn mt-3" [disabled]="form.invalid">
-    Add Course
+<div class="position-relative">
+  <button class="btn position-absolute top-0 end-0 p-0" mat-dialog-close>
+    <i class="bi bi-x"></i>
   </button>
-</form>
+  <h1 class="m-2">Add Course</h1>
+  <form #form="ngForm" (ngSubmit)="postCourse(form)">
+    <div class="form-group">
+      <label for=" title">Title</label>
+      <input
+        type="text"
+        id="title"
+        name="title"
+        class="form-control"
+        required
+        ngModel
+      />
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea
+        type="textarea"
+        id="description"
+        name="description"
+        class="form-control"
+        ngModel
+      ></textarea>
+    </div>
+    <div class="form-group">
+      <label for="hours">Hours</label>
+      <input
+        type="number"
+        id="hours"
+        name="hours"
+        class="form-control"
+        [min]="10"
+        max="200"
+        ngModel
+      />
+    </div>
+    <button type="submit" class="btn mt-3" [disabled]="form.invalid">
+      Add Course
+    </button>
+  </form>
+</div>

@@ -1,14 +1,20 @@
 <div class="d-flex flex-column h-100 justify-content-around">
-  <div class="p-4">
-    <h3>legenda</h3>
-  </div>
-  <ng-container *ngIf="presences.length > 1">
+  <div *ngIf="presences.length > 0">
+    <p class="ps-4 m-0 pb-2 pt-2">Select Date</p>
     <mat-card class="demo-inline-calendar-card">
       <mat-calendar
         [(selected)]="selected"
         [dateClass]="dateClass()"
-      ></mat-calendar> </mat-card
-  ></ng-container>
+      ></mat-calendar>
+    </mat-card>
+    <div class="ps-4 pe-4 text-end mt-2">
+      <span>Legend</span>
+      <span class="bg-primary-blu">HOLIDAY</span>
+      <span class="bg-accent">PERMIT</span>
+      <span class="bg-green">PRESENT</span>
+      <span class="bg-secondary-blu">SELECTED</span>
+    </div>
+  </div>
 
   <div class="p-4 d-flex align-items-center">
     <form #form="ngForm" (ngSubmit)="newAbstinenceStatus(form)">

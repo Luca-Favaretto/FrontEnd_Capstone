@@ -1,3 +1,15 @@
 .demo-inline-calendar-card {
   width: 100%;
 }
+span {
+  border-radius: 5px;
+  padding: 2px 5px 2px;
+  margin-inline: 10px;
+  color: var(--color-white);
+  font-size: 0.8em;
+  &:first-child {
+    color: var(--color-black);
+    margin-right: auto;
+    font-size: 1em;
+  }
+}

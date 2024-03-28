@@ -2,6 +2,9 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { UserService } from 'src/app/service/user.service';
 import { Task } from 'src/app/interface/task';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { SnackService } from 'src/app/service/snack.service';
 @Component({
   selector: 'app-form-edit-task',
   templateUrl: './form-edit-task.component.html',
@@ -10,7 +13,9 @@ import { Task } from 'src/app/interface/task';
 export class FormEditTaskComponent implements OnInit {
   task: Task;
   dialog: MatDialog;
+
   constructor(
+    private snackSrv: SnackService,
     private userSrv: UserService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
@@ -23,6 +28,7 @@ export class FormEditTaskComponent implements OnInit {
   complateTask(idTask: string) {
     this.userSrv.complateTask(idTask).subscribe(() => {
       this.dialog.closeAll();
+      this.snackSrv.openSnack('Task complate');
     });
   }
 }
