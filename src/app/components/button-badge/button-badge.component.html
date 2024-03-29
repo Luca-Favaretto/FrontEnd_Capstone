@@ -3,12 +3,21 @@
     Start
   </button></ng-container
 >
-<ng-container *ngIf="!todayStart"
-  ><button
-    class="h-100 w-100 fs-1 finish"
-    (click)="finish()"
-    [disabled]="disable"
-  >
-    Finish
-  </button></ng-container
->
+<ng-container *ngIf="!todayStart">
+  <ng-container *ngIf="!disable; else elseBlock">
+    <button
+      class="h-100 w-100 fs-1 finish"
+      (click)="finish()"
+      [disabled]="disable"
+    >
+      Finish
+    </button>
+  </ng-container>
+  <ng-template #elseBlock>
+    <div
+      class="h-100 w-100 d-flex justify-content-center align-items-center already-finish"
+    >
+      <span class="fs-3 m-0 text-center">Already update Finish</span>
+    </div>
+  </ng-template>
+</ng-container>

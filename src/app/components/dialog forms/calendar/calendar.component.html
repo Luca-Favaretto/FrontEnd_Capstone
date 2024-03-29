@@ -1,6 +1,6 @@
 <div class="d-flex flex-column h-100 justify-content-around">
   <div *ngIf="presences.length > 0">
-    <p class="ps-4 m-0 pb-2 pt-2">Select Date</p>
+    <p class="ps-4 m-0 pb-1 pt-2 fs-6">Select Date</p>
     <mat-card class="demo-inline-calendar-card">
       <mat-calendar
         [(selected)]="selected"
@@ -19,7 +19,7 @@
   <div class="p-4 d-flex align-items-center">
     <form #form="ngForm" (ngSubmit)="newAbstinenceStatus(form)">
       <div class="form-group">
-        <label for="abstinenceStatus">Abstinence Status</label>
+        <label for="abstinenceStatus" class="fs-6">Abstinence Status</label>
         <select
           id="abstinenceStatus"
           name="abstinenceStatus"

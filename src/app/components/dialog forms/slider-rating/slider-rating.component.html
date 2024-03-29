@@ -1,7 +1,6 @@
 <div class="text-center">
-  <h3>
-    Actual Rating <span>{{ user.rating }}</span>
-  </h3>
+  <h3 class="fs-3">Actual Rating</h3>
+  <span class="fs-5">{{ user.rating }}</span>
   <mat-slider
     class="custom-slider d-block"
     min="0"
@@ -11,7 +10,5 @@
   >
     <input matSliderThumb />
   </mat-slider>
-  <button class="btn btn-primary" (click)="updateRating()">
-    Update Rating
-  </button>
+  <button class="inverse-button" (click)="updateRating()">Update Rating</button>
 </div>

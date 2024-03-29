@@ -1,3 +1,9 @@
-.custom-slider {
-  width: 300px;
+:host {
+  background-color: var(--color-white);
+  div {
+    width: 250px;
+    .custom-slider {
+      width: 100%;
+    }
+  }
 }

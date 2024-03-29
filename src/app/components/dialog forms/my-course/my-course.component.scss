@@ -1,19 +1,19 @@
 div:first-child {
   padding: 0.5em;
-}
-div {
-  width: 300px;
-  background-color: rgba(4, 94, 94, 0.069);
-  border-radius: 5px;
-  margin-bottom: 2px;
-  .hours {
-    font-size: 0.8em;
-    position: absolute;
-    right: 0px;
-    bottom: 0px;
-    margin: 0 5px 0;
-  }
-  .small-button {
-    font-size: 0.8em;
+  > div {
+    width: 300px;
+    background-color: var(--color-semitasparent);
+    border-radius: 5px;
+    margin-bottom: 2px;
+    .hours {
+      font-size: 0.8em;
+      position: absolute;
+      right: 0px;
+      bottom: 0px;
+      margin: 0 5px 0;
+    }
+    .small-button {
+      font-size: 0.8em;
+    }
   }
 }

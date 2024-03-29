@@ -1,0 +1,15 @@
+:host {
+  background-color: var(--color-white);
+  div:first-child {
+    width: 250px;
+
+    form {
+      label {
+        margin-bottom: 5px;
+      }
+      button {
+        margin-top: 10px;
+      }
+    }
+  }
+}

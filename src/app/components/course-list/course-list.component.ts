@@ -6,8 +6,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { MyCourseComponent } from '../dialog forms/my-course/my-course.component';
 import { AuthService } from 'src/app/service/auth.service';
 import { AddCourseComponent } from '../dialog forms/add-course/add-course.component';
-import { BreakpointObserver } from '@angular/cdk/layout';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackService } from 'src/app/service/snack.service';
 @Component({
   selector: 'app-course-list',
