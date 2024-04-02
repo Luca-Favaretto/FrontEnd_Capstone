@@ -16,5 +16,10 @@ export class ResultListComponent implements OnInit {
     this.resultSrv.getMyResults().subscribe((res) => {
       this.results = res.content;
     });
+    this.resultSrv.sharedResult$.subscribe((res) => {
+      if (res !== null) {
+        this.results.push(res!);
+      }
+    });
   }
 }

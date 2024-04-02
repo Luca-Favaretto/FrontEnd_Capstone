@@ -4,6 +4,7 @@ import { InternalCourseService } from 'src/app/service/internal-course.service';
 import { UserService } from 'src/app/service/user.service';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { SnackService } from 'src/app/service/snack.service';
+import { ResultService } from 'src/app/service/result.service';
 
 @Component({
   selector: 'app-my-course',
@@ -15,6 +16,7 @@ export class MyCourseComponent implements OnInit {
   dialog: MatDialog;
 
   constructor(
+    private resultSrv: ResultService,
     private snackSrv: SnackService,
     private userSrv: UserService,
     private InternalCourseSrv: InternalCourseService,
@@ -29,7 +31,8 @@ export class MyCourseComponent implements OnInit {
     });
   }
   complateCourses(idCourse: string): void {
-    this.userSrv.complateCourse(idCourse).subscribe(() => {
+    this.userSrv.complateCourse(idCourse).subscribe((res) => {
+      this.resultSrv.updateSharedData(res);
       this.dialog.closeAll();
       this.snackSrv.openSnack('Complate');
     });
